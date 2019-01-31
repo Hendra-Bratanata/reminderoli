@@ -9,7 +9,16 @@ import org.json.JSONObject;
 public class Mobil implements Parcelable{
     String id_user;
     String id_oli;
-    String namaMobil;
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    String Status;
 
     public String getId_user() {
         return id_user;
@@ -67,36 +76,37 @@ public class Mobil implements Parcelable{
         this.kmService = kmService;
     }
 
+    String namaMobil;
     String jenisMobil;
     String noPol;
     String kmSekarang;
     String kmService;
-public  Mobil(){}
-   public Mobil(JSONObject object) {
-       try {
+    public  Mobil(){}
+    public Mobil(JSONObject object) {
+        try {
 
 
-           String id_user = object.getString("Id_User");
-           String id_oli = object.getString("Id_Oli");
-           String namaMobil = object.getString("Nama_Mobil");
-           String jenisMobil = object.getString("noPol");
-           String noPol = object.getString("Jenis_Mobil");
-           String kmSekarang = object.getString("kmAwal");
-           String kmService = object.getString("kmService");
+            String id_user = object.getString("Id_User");
+            String id_oli = object.getString("Id_Oli");
+            String namaMobil = object.getString("Nama_Mobil");
+            String jenisMobil = object.getString("Jenis_Mobil");
+            String noPol = object.getString("noPol");
+            String kmSekarang = object.getString("kmAwal");
+            String kmService = object.getString("kmService");
 
-           this.id_user = id_user;
-           this.id_oli = id_oli ;
-           this.namaMobil = namaMobil ;
-           this.jenisMobil = jenisMobil ;
-           this.noPol = noPol;
-           this.kmSekarang = kmSekarang;
-           this.kmService = kmService ;
+            this.id_user = id_user;
+            this.id_oli = id_oli ;
+            this.namaMobil = namaMobil ;
+            this.jenisMobil = jenisMobil ;
+            this.noPol = noPol;
+            this.kmSekarang = kmSekarang;
+            this.kmService = kmService ;
 
 
-       }catch (JSONException e){
-           e.printStackTrace();
-       }
-   }
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
 
 
 
@@ -108,6 +118,7 @@ public  Mobil(){}
         noPol = in.readString();
         kmSekarang = in.readString();
         kmService = in.readString();
+        Status = in.readString();
     }
 
     public static final Creator<Mobil> CREATOR = new Creator<Mobil>() {
@@ -136,5 +147,6 @@ public  Mobil(){}
         dest.writeString(noPol);
         dest.writeString(kmSekarang);
         dest.writeString(kmService);
+        dest.writeString(Status);
     }
 }

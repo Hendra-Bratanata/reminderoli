@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.rv_list_user)
-            RecyclerView rvCatagory;
+    RecyclerView rvCatagory;
 
     MobilAdapter adapter;
     ArrayList<Mobil> listUser;
@@ -45,20 +45,27 @@ public class MainActivity extends AppCompatActivity {
         ItemClickSupport.addTo(rvCatagory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+
+
                 Mobil mobil = new Mobil();
                 mobil.setId_user(listUser.get(position).id_user);
                 mobil.setNoPol(listUser.get(position).getNoPol());
                 mobil.setKmService(listUser.get(position).getKmService());
                 mobil.setKmSekarang(listUser.get(position).getKmSekarang());
+                mobil.setStatus("admin");
 
 
-                Intent intent = new Intent(MainActivity.this,DetailUserActivity.class);
-                intent.putExtra(DetailUserActivity.getData,mobil);
+                Intent intent = new Intent(MainActivity.this, DetailUserActivity.class);
+                intent.putExtra(DetailUserActivity.getData, mobil);
                 startActivity(intent);
             }
         });
+        LoadData();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,URL, new Response.Listener<String>() {
+    }
+    void LoadData(){
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 ArrayList<Mobil> userData = new ArrayList<>();
@@ -70,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                         Mobil user = new Mobil(obj);
 
 
-                       userData.add(user);
+                        userData.add(user);
 
 
                     }

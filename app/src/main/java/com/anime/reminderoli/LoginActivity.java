@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (kosong) {
                     mProgressBar.setVisibility(View.VISIBLE);
                     cekUser();
+
                 }
             }
         });
@@ -113,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra(DetailUserActivity.getData, mobil);
                                 startActivity(intent);
                             } else {
+                                mobil.setStatus("user");
                                 Intent intent = new Intent(LoginActivity.this, DetailUserActivity.class);
                                 intent.putExtra(DetailUserActivity.getData, mobil);
                                 startActivity(intent);

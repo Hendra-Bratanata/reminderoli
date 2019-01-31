@@ -13,6 +13,10 @@ public class User implements Parcelable {
     String password;
     String email;
 
+    public User() {
+
+    }
+
     public String getIdUser() {
         return IdUser;
     }

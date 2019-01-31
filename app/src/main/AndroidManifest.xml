@@ -23,6 +23,14 @@
         </activity>
         <activity android:name=".SignupActivity" />
         <activity android:name=".DetailUserActivity"></activity>
+        <activity android:name=".EditActivity"></activity>
+        <service android:name=".MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispacher.ACTION_EXECUTE"/>
+
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

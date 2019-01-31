@@ -5,5 +5,7 @@
     <string name="jenis_oli">Id Oli : %s</string>
     <string name="kilometer_sekarang">Kilometer Sekarang : %s</string>
     <string name="kilometer_service">Kilometer Service : %s</string>
+    <string name="nama_mobil">nama Mobil</string>
+    <string name="jenis_mobil">Jenis Mobil</string>
 
 </resources>
